@@ -1,0 +1,31 @@
+.school{
+    font-family: Jost;
+    h4{
+        display: inline-block;
+        font-size: 30px;
+        font-weight: 600;
+        line-height: 48px;
+        color: #141024;
+    }
+    span{
+        font-size: 30px;
+        font-weight: 400;
+        line-height: 48px;
+        color: #141024;
+    }
+    .school-cards{
+        display: flex;
+        margin-top: 60px;
+        .school-card{
+            h3{
+                font-size: 70px;
+                font-weight: 600;
+                line-height:112px;
+                color: #D52027;
+            }
+        }
+        .school-card + .school-card{
+            margin-left: 40px;
+        }
+    }
+}
