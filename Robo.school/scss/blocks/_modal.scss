@@ -1,0 +1,143 @@
+#modal{
+    overflow: hidden;
+    transition: all 0.2s ease-in;
+    z-index: 999;
+    position: fixed;
+    height: 768px;
+    width: 940px;
+    border-radius: 20px;
+    opacity: 0;
+    visibility: hidden;
+    padding: 40px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    background: #fff;
+    img{
+        margin-right: 40px;
+        width: 160px;
+        height: 222px;
+    }
+    .modal-header-content{
+        h4{
+            margin-bottom: 10px;
+            display: inline-block;
+            margin-top: 0;
+        }
+        p{
+            margin-bottom: 10px;
+        }
+        svg + svg {
+            margin-left: 10px;
+        }
+        svg{
+            transition: all 0.2s ease-in;
+        }
+        svg:hover{
+            cursor: pointer;
+            opacity: 0.8;
+        }
+    }
+    .close-btn{
+        max-height: 29px;
+        margin-right: 0;
+        margin-left: auto;
+        a{
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 28.8px;
+            color: rgba(20, 16, 36, 0.70);
+        }
+    }
+    .modal-content{
+        max-height: 380px;
+        margin-top: 20px;
+        border: none;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        p + h4 {
+            margin-top: 40px;
+        }
+        h4{
+            margin-bottom: 20px;
+        }
+        p{
+            max-width: 70%;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 32px;
+            color: #141024;
+        }
+    }
+    .aducation{
+        transition: transform 0.3s ease-in;
+        position: static;
+    }
+    .exp{
+        transition: transform 0.3s ease-in;
+        position: absolute;
+        transform: translateX(150%);
+    }
+    .modal-content::-webkit-scrollbar {
+        width: 5px;
+    }
+    .modal-content::-webkit-scrollbar-track {
+        background-color: rgba(20, 16, 36, 0.08);;
+        border-radius: 5px;
+    }
+    .modal-content::-webkit-scrollbar-thumb {
+        background-color: #141024;
+        border-radius: 5px;
+    }
+}
+#modal:target{
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    visibility: visible;
+}
+#modal:target + .trainers{
+    background: #000;
+}
+.modal-header-1{
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(20, 16, 36, 0.11);
+    .flex-box{
+        display: flex;
+    }
+    .nav-modal{
+        display: block;
+        margin-left: 0;
+        margin-right: auto;
+        input{
+            display: none;
+        }
+        .block-a{
+            margin-left: 180px;
+            cursor: no-drop;
+            color: rgba(20, 16, 36, 0.20);
+        }
+        .block-a:hover{
+            color: rgba(20, 16, 36, 0.20);
+        }
+        label{
+            cursor: pointer;
+            margin-bottom: 0;
+        }
+        p, a{
+            margin-bottom: 0;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 32px;
+        }
+        label + input + label{
+            margin-left: 180px;
+        }
+        input:checked + label > .p-active{
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 32px;
+            color: #D52027;
+        }
+
+    }
+}
