@@ -3,10 +3,12 @@ const hide = document.querySelector('.hide');
 
 svg.addEventListener('mouseover', () => {
     hide.style.opacity = "1";
+    hide.style.visibility = "visible";
     hide.style.transform = "translateY(-100%)";
 })
 
 svg.addEventListener('mouseout', () => {
+    hide.style.visibility = "hidden";
     hide.style.opacity = "0";
     hide.style.transform = "translateY(-80%)";
 })
@@ -132,9 +134,25 @@ closeBtn.addEventListener('click', () => {
 
 const adBtn = document.getElementById('modalNavOne');
 const expBtn = document.getElementById('modalNavTwo');
+const expopBtn = document.getElementById('opTwo');
+const adopBtn = document.getElementById('opOne');
 const aducation = document.querySelector('.aducation');
 const exp = document.querySelector('.exp');
 const modalInputAll = document.querySelectorAll('.modal-input');
+const opAll = document.querySelector('select');
+
+opAll.addEventListener('click', () => {
+    aducation.style.transform = "translateX(0)";
+    exp.style.transform = "translateX(0)";
+    if (expopBtn.selected){
+        aducation.style.display = "none";
+        exp.style.display = "inline";
+    }
+    if (adopBtn.selected){
+        aducation.style.display = "inline";
+        exp.style.display = "none";
+    }
+})
 
 modalInputAll.forEach((e) => {
     e.addEventListener('change', () => {
