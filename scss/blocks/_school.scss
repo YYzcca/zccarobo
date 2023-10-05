@@ -7,25 +7,93 @@
         line-height: 48px;
         color: #141024;
     }
+    @media (max-width:576px){
+        h4{
+            font-size: 20px;
+            line-height: 32px;
+        }
+    }
     span{
         font-size: 30px;
         font-weight: 400;
         line-height: 48px;
         color: #141024;
     }
+    @media (max-width:576px){
+        span{
+            font-size: 20px;
+            line-height: 32px;
+        }
+    }
     .school-cards{
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
         margin-top: 60px;
         .school-card{
             h3{
-                font-size: 70px;
+                font-size: clamp(60px, 5vw, 70px);
                 font-weight: 600;
                 line-height:112px;
                 color: #D52027;
+                white-space:nowrap;
+            }
+            @media (max-width:1200px){
+                h3{
+                    line-height: normal;
+                } 
+                br{
+                    display: none;
+                }
+            }
+        }
+        @media (max-width:576px){
+            .school-card{
+                max-width: 270px;
+                text-align: center;
             }
         }
         .school-card + .school-card{
             margin-left: 40px;
         }
+        @media (max-width:992px){
+            .school-card + .school-card{
+                margin-left: 40px;
+            }
+            .school-card + .school-card + .school-card{
+                margin-left: 0;
+            }
+            .school-card + .school-card + .school-card + .school-card{
+                margin-left: 40px;
+            }
+        }
+        @media (max-width:576px){
+            .school-card + .school-card{
+                margin-left: 0px;
+                margin-top: 30px;
+            }
+            .school-card + .school-card + .school-card{
+                margin-left: 0;
+            }
+            .school-card + .school-card + .school-card + .school-card{
+                margin-left: 0px;
+            }
+        }
+    }
+    @media (max-width:992px){
+        .school-cards{
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    @media (max-width:576px){
+        .school-cards{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+}
+@media (max-width:576px){
+    br{
+        display: none;
     }
 }
