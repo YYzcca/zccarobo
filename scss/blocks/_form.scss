@@ -2,16 +2,29 @@
     position: relative;
     overflow: hidden;
     background: #D52027;
-    padding: 87px 0;
+    padding: clamp(40px, 7vw, 87px) 0;
     .flex-box{
         display: flex;
         justify-content: center;
     }
+    @media (max-width:576px) {
+        .flex-box{
+            display: block;
+            text-align: center;
+        }
+    }
     .sec-form-content{
-        margin-right: 64px;
+        margin-right: clamp(64px, 5vw, 92px);
+    }
+    @media (max-width:576px) {
+        .sec-form-content{
+            display: block;
+            width: 100%;
+            margin-bottom: 40px;
+        }
     }
     h4{
-       margin-top: 13px;
+        margin-top: 13px;
         font-size: 36px;
         font-weight: 600;
         line-height: 46.8px;
@@ -28,10 +41,15 @@
         outline: none;
         border: none;
         display: block;
-        width: 500px;
+        width: clamp(300px, 45vw, 500px);
         height: 64px;
         padding-left: 10px;
         border-radius: 5px;
+    }
+    @media (max-width:576px) {
+        input{
+            width: 100%;
+        }
     }
     input + input {
         margin-top: 10px;
@@ -69,6 +87,16 @@
         position: absolute;
         animation: run 10s linear infinite;
         width: 100%;
+    }
+    @media (max-width:768px) {
+        .form-svg{
+            display: none;
+        }
+    }
+}
+@media (max-width:992px){
+    br{
+        display: none;
     }
 }
 @keyframes run {
