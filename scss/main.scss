@@ -30,23 +30,44 @@ body{
     opacity: 0;
 }
 section{
-    margin-top: 120px;
+    margin-top: clamp(60px, 8vw, 120px);
 }
 a.logo{
     text-decoration: none;
     text-transform: uppercase;
-    font-size: 30px;
+    font-size: clamp(18px, 5vw, 30px);
     font-weight: 700;
     color: #FFF;
     position: absolute;
 }
+@media (max-width:1200px){
+    a.logo{
+        left: 40px;
+    }
+}
+@media (max-width:576px){
+    a.logo{
+        left: 10px;
+    }
+}
 a.num{
     text-decoration: none;
     color: #FFF;
-    font-size: 30px;
+    font-size: clamp(16px, 4vw, 30px);
     font-weight: 600;
     position: absolute;
     right: 100px;
+}
+@media (max-width:1200px){
+    a.num{
+        right: 40px;
+    }
+}
+@media (max-width:992px){
+    a.num{
+        display: none;
+        right: 100px;
+    }
 }
 a.num:hover, a.logo:hover{
     text-decoration: none;
@@ -54,16 +75,28 @@ a.num:hover, a.logo:hover{
 }
 p.section-p{
     font-family: Jost;
-    font-size: 18px;
+    font-size: clamp(14px, 6vw, 18px);
     font-weight: 400;
     line-height: 28.8px;
     color: rgba(20, 16, 36, 0.70);
 }
+@media (max-width:1200px){
+    p.section-p{
+        br{
+            display: none;
+        }
+    }
+}
 h2.section-h{
     font-family: Jost;
-    font-size: 50px;
+    font-size: clamp(30px, 7vw, 50px);
     font-weight: 600;
-    line-height: 80px;
+    line-height: clamp(42px, 5vw, 80px);
     color: #141024;
     margin-bottom: 60px;
+}
+@media (max-width:768px){
+    h2.section-h{
+        text-align: center;
+    }
 }
