@@ -182,6 +182,7 @@ mobileMenuNav.forEach((e) => {
         menuBtn.style.right = "0";
         menuBtn.style.top = "0";
         num.style.display = "inline-block";
+        document.body.style.overflow = 'scroll';
     })
 })
 
