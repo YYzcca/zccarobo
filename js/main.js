@@ -76,7 +76,6 @@ function polos() {
     polosa.style.width = heil + '%';
 }
 polos();
-console.log(heil);
 
 
 
@@ -139,20 +138,20 @@ const adopBtn = document.getElementById('opOne');
 const aducation = document.querySelector('.aducation');
 const exp = document.querySelector('.exp');
 const modalInputAll = document.querySelectorAll('.modal-input');
-const opAll = document.querySelector('select');
+const opAll = document.getElementById('mySelect');
 
-opAll.addEventListener('click', () => {
-    aducation.style.transform = "translateX(0)";
-    exp.style.transform = "translateX(0)";
-    if (expopBtn.selected){
-        aducation.style.display = "none";
-        exp.style.display = "inline";
-    }
-    if (adopBtn.selected){
-        aducation.style.display = "inline";
-        exp.style.display = "none";
-    }
-})
+    opAll.addEventListener('change', () => {
+        aducation.style.transform = "translateX(0)";
+        exp.style.transform = "translateX(0)";
+        if (expopBtn.selected){
+            aducation.style.display = "none";
+            exp.style.display = "inline";
+        }
+        if (adopBtn.selected){
+            aducation.style.display = "inline";
+            exp.style.display = "none";
+        }
+    })
 
 modalInputAll.forEach((e) => {
     e.addEventListener('change', () => {
@@ -169,4 +168,44 @@ modalInputAll.forEach((e) => {
             exp.style.transform = "none";
         }
     })
+})
+
+const menuBtnCont = document.querySelector('.brgr-itms');
+const menuBtn = document.getElementById('brgrBtn');
+const mobileMenuNav = document.querySelectorAll('#mobileMenuNav');
+const num = document.querySelector('.nav-hidden-ic');
+
+mobileMenuNav.forEach((e) => {
+    e.addEventListener('click', () => {
+        menuBtnCont.classList.remove('brgr-close');
+        menuBtn.style.position = "relative";
+        menuBtn.style.right = "0";
+        menuBtn.style.top = "0";
+        num.style.display = "inline-block";
+    })
+})
+
+menuBtn.addEventListener('click', () => {
+    if (menuBtnCont.classList.contains('brgr-close')){
+        num.style.display = "inline-block";
+        menuBtn.style.position = "relative";
+        menuBtn.style.right = "0";
+        menuBtn.style.top = "0";
+        menuBtnCont.classList.remove('brgr-close');
+        menuBtn.href = "#modal-id";
+        if (window.innerWidth <= 576){
+            document.body.style.overflow = 'scroll';
+        }
+    } else {
+        num.style.display = "none";
+        menuBtnCont.classList.add('brgr-close');
+        menuBtn.href = "#mobile-menu";
+        if (window.innerWidth <= 576){
+            document.body.style.overflow = 'hidden';
+        } else {
+            menuBtn.style.position = "fixed";
+            menuBtn.style.right = "20px";
+            menuBtn.style.top = "20px";
+        }
+    };
 })
