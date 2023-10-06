@@ -29,6 +29,46 @@ main header .nav a + a {
     display: none;
   }
 }
+main #mobile-menu {
+  justify-content: center;
+  display: flex;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-50%);
+  transition: all 0.2s ease-in;
+  align-items: center;
+  z-index: 998;
+  width: 100%;
+  background: #141024;
+  position: fixed;
+  height: 30vh;
+  top: 0;
+  box-shadow: 0px 13px 6px -7px rgba(34, 60, 80, 0.2);
+}
+main #mobile-menu a {
+  display: block;
+  text-align: center;
+  font-family: inherit;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 46px;
+  color: #FFF;
+}
+main #mobile-menu a + a {
+  margin-top: 20px;
+}
+@media (max-width: 576px) {
+  main #mobile-menu {
+    width: 100%;
+    height: 100%;
+    transform: translateX(50%);
+  }
+}
+main #mobile-menu:target {
+  transform: none;
+  opacity: 1;
+  visibility: visible;
+}
 @media (max-width: 992px) {
   main header {
     margin-top: 10px;
@@ -222,14 +262,17 @@ main .nav-hidden-ic .brgr {
   top: 0;
   text-align: center;
   position: absolute;
+  z-index: 999;
   width: 100%;
   height: 100%;
 }
 main .nav-hidden-ic .brgr .brgr-itms {
+  position: relative;
   margin-left: auto;
   margin-right: auto;
 }
-main .nav-hidden-ic .brgr #brgr-cont {
+main .nav-hidden-ic .brgr .brgr-itms #brgr-cont {
+  transition: rotate 0.2s ease-in;
   text-align: center;
   border-radius: 15px;
   display: block;
@@ -237,11 +280,38 @@ main .nav-hidden-ic .brgr #brgr-cont {
   height: 3px;
   width: 30px;
 }
-main .nav-hidden-ic .brgr #brgr-cont + #brgr-cont {
+main .nav-hidden-ic .brgr .brgr-itms #brgr-cont + #brgr-cont {
   margin-top: 4px;
 }
-main .nav-hidden-ic .brgr #brgr-cont + #brgr-cont + #brgr-cont {
+main .nav-hidden-ic .brgr .brgr-itms #brgr-cont + #brgr-cont + #brgr-cont {
   width: 16px;
+}
+main .nav-hidden-ic .brgr .brgr-close {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -2px);
+  width: 16px;
+  height: 16px;
+}
+main .nav-hidden-ic .brgr .brgr-close #brgr-cont {
+  margin: 0;
+  border-radius: 15px;
+  width: 16px;
+  position: absolute;
+  background: #ffffff;
+  height: 3px;
+  rotate: 45deg;
+}
+main .nav-hidden-ic .brgr .brgr-close #brgr-cont + #brgr-cont + #brgr-cont {
+  display: none;
+}
+main .nav-hidden-ic .brgr .brgr-close #brgr-cont + #brgr-cont {
+  rotate: 135deg;
+  margin: 0;
+}
+main .nav-hidden-ic + .nav-hidden-ic {
+  z-index: 999;
 }
 
 @media (max-width: 991px) {
@@ -678,11 +748,28 @@ main .nav-hidden-ic .brgr #brgr-cont + #brgr-cont + #brgr-cont {
   margin-right: 0;
   margin-left: auto;
 }
-#modal .close-btn a {
+#modal .close-btn #close-text {
   font-size: 18px;
   font-weight: 400;
   line-height: 28.8px;
   color: rgba(20, 16, 36, 0.7);
+}
+@media (max-width: 576px) {
+  #modal .close-btn #close-text {
+    display: none;
+  }
+}
+#modal .close-btn #close-ic {
+  background: url(../img/closeIc.svg);
+  width: 40px;
+  height: 40px;
+  display: none;
+}
+@media (max-width: 576px) {
+  #modal .close-btn #close-ic {
+    margin-top: 0;
+    display: inline-block;
+  }
 }
 #modal .modal-content {
   height: 380px;
@@ -706,12 +793,12 @@ main .nav-hidden-ic .brgr #brgr-cont + #brgr-cont + #brgr-cont {
 }
 @media (max-width: 992px) {
   #modal .modal-content {
-    height: clamp(252px, 30vw, 380px);
+    height: 70%;
   }
 }
 @media (max-width: 767px) {
   #modal .modal-content {
-    height: clamp(252px, 1vw, 300px);
+    height: 60%;
   }
 }
 #modal .aducation {
@@ -722,6 +809,11 @@ main .nav-hidden-ic .brgr #brgr-cont + #brgr-cont + #brgr-cont {
   transition: transform 0.3s ease-in;
   position: absolute;
   transform: translateX(150%);
+}
+@media (max-width: 576px) {
+  #modal .exp {
+    display: none;
+  }
 }
 #modal .modal-content::-webkit-scrollbar {
   width: 5px;
@@ -1118,12 +1210,18 @@ footer p {
     display: block;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   footer p {
-    margin-top: 40px;
+    margin-top: 8%;
   }
 }
 
+@media (max-width: 1200px) {
+  footer {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
 @media (max-width: 768px) {
   footer {
     text-align: center;
