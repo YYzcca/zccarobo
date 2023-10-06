@@ -590,7 +590,7 @@ main .nav-hidden-ic .brgr #brgr-cont + #brgr-cont + #brgr-cont {
   }
 }
 #modal .select:after {
-  content: url(/img/moar.svg);
+  content: url(../img/moar.svg);
   position: absolute;
   right: clamp(30%, 4vw, 40%);
   top: 10px;
