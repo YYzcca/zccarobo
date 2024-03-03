@@ -1243,7 +1243,6 @@ body {
 #modal-id {
   cursor: default;
   transition: all 0.2s ease-in;
-  opacity: 0.6;
   background: #000;
   z-index: 99;
   position: fixed;
