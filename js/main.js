@@ -119,10 +119,23 @@ html.addEventListener('click', () => {
     html.style.visibility = "hidden";
 })
 
+const inCardImg = document.querySelectorAll('#inCardImg');
+const inModalImg = document.getElementById('inModalImg');
+const modalName = document.getElementById('modalName')
+
 modalBtn.forEach(function(e){
     e.addEventListener('click', () => {
         html.style.opacity = "0.6";
         html.style.visibility = "visible";
+
+        inCardImg.forEach((i) => {
+            let imgSrc = e.previousElementSibling.previousElementSibling.previousElementSibling.getAttribute('src');
+            let name = e.previousElementSibling.previousElementSibling.innerText;
+            let job = e.previousElementSibling.innerText;
+            inModalImg.setAttribute("src", imgSrc);
+            modalName.innerText = name;
+            modalName.nextElementSibling.innerText = job;
+        })
     })
 })
 
@@ -210,3 +223,5 @@ menuBtn.addEventListener('click', () => {
         }
     };
 })
+
+
